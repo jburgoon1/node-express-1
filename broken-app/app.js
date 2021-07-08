@@ -14,7 +14,7 @@ app.post('/', async function(req, res, next) {
       let info = await axios.get(`https://api.github.com/users/${d}`);
       peopleArr.push({name: info.data.name, bio:info.data.bio})
       console.log(peopleArr)    
-      if(peopleArr.length === 2){
+      if(peopleArr.length === req.body.developers.length){
         return res.send(peopleArr)
       }
       
